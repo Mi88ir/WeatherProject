@@ -3,7 +3,13 @@ const app = express();
 const https = require("https");
 
 app.get("/", function (req, res) {
-    res.sendFile("../index.html");
+    // it is important that the initial server file is in root or if thats not the case you will have to use the router. 
+    // for now stick with the initial server file in root directory
+    // render files like HTML pages etc., better to have them in public directory because server exposes public folder 
+    // for learning feel free to put index.html in root instead of public.
+
+    console.log('test')
+    res.sendFile('index.html', { root: __dirname+"/public" });
 });
 
 app.listen(3000, function () {
